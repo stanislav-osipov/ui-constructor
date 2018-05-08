@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+
+mat-drawer-container {
+  height: 100%;
+}
+
+mat-drawer {
+  width: 300px;
+}
+
+mat-toolbar {
+  @include mat-elevation(6);
+}
