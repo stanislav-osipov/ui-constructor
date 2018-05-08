@@ -5,8 +5,10 @@ import {
   MatCardModule,
   MatSidenavModule,
   MatToolbarModule,
-  MatIconModule
+  MatIconModule,
+  MatExpansionModule
 } from '@angular/material';
+import { ButtonComponent } from './dynamic/button/button.component';
 
 @NgModule({
   imports: [
@@ -15,7 +17,8 @@ import {
     MatCardModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
   ],
   exports: [
     CommonModule,
@@ -23,8 +26,10 @@ import {
     MatCardModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule,
+    ButtonComponent
   ],
-  declarations: []
+  declarations: [ButtonComponent]
 })
 export class SharedModule {}

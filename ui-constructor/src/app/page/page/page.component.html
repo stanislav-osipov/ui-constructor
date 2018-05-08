@@ -1,0 +1,5 @@
+<div>
+  <ng-container *ngFor="let element of scheme.elements">
+      <ng-template [cdkPortalOutlet]="getPortal(element)"></ng-template>
+  </ng-container>
+</div>
