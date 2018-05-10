@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { PageModule } from './page/page.module';
+import { ConstructorModule } from './constructor/constructor.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,8 @@ import { PageModule } from './page/page.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    PageModule
+    PageModule,
+    ConstructorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
