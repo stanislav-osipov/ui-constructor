@@ -1,1 +1,9 @@
+.dynamic-page {
+  position: relative;
+  overflow: hidden;
+}
 
+:host {
+  display: block;
+  padding: 5px;
+}

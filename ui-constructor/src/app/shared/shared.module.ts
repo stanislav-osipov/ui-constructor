@@ -9,6 +9,8 @@ import {
   MatExpansionModule
 } from '@angular/material';
 import { ButtonComponent } from './dynamic/button/button.component';
+import { CardComponent } from './dynamic/card/card.component';
+import { BaseComponent } from './dynamic/base/base.component';
 
 @NgModule({
   imports: [
@@ -30,6 +32,6 @@ import { ButtonComponent } from './dynamic/button/button.component';
     MatExpansionModule,
     ButtonComponent
   ],
-  declarations: [ButtonComponent]
+  declarations: [ButtonComponent, CardComponent, BaseComponent]
 })
 export class SharedModule {}

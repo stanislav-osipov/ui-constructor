@@ -7,8 +7,11 @@ import {
   InjectionToken
 } from '@angular/core';
 
-abstract class DynamicComponent {
+export abstract class DynamicComponent {
   public static DATA_TOKEN = new InjectionToken<{}>('DYNAMIC_COMPONENT_DATA');
+
+  @Input() width: string;
+  @Input() height: string;
 }
 
 @Component({
@@ -20,11 +23,13 @@ abstract class DynamicComponent {
 export class ButtonComponent extends DynamicComponent implements OnInit {
   @Input() text: string;
 
-  constructor(@Inject(ButtonComponent.DATA_TOKEN) private data) {
+  constructor(@Inject(ButtonComponent.DATA_TOKEN) public data) {
     super();
   }
 
   ngOnInit() {
     this.text = this.data.text;
+    this.height = this.data.height;
+    this.width = this.data.width;
   }
 }

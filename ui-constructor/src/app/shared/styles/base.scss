@@ -1,3 +1,21 @@
-html, body {
+html,
+body {
   height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dynamic-page {
+  .dynamic-component {
+    position: absolute;
+    padding: 5px;
+  }
+
+  .mat-raised-button {
+    height: 100%;
+    width: 100%;
+  }
 }

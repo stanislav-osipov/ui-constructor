@@ -1,4 +1,4 @@
-<div>
+<div class="dynamic-page" [style.height.px]="getPageHeight()">
   <ng-container *ngFor="let element of scheme.elements">
       <ng-template [cdkPortalOutlet]="getPortal(element)"></ng-template>
   </ng-container>
