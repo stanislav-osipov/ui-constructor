@@ -1,0 +1,66 @@
+@import '~@angular/material/theming';
+
+.constructor {
+  display: flex;
+  $padding: 10px;
+  max-height: calc(100% - 64px);
+  overflow: hidden;
+
+  .editable-page {
+    padding: 0;
+  }
+
+  &__components {
+    width: 300px;
+    max-height: 90%;
+    padding: $padding;
+    padding-right: $padding / 2;
+  }
+
+  &__editor {
+    flex: 1;
+    overflow: auto;
+  }
+
+  &__actions {
+    padding: $padding;
+    padding-left: $padding / 2;
+  }
+
+  &__toolbar {
+    @include mat-elevation(2);
+
+    background-color: white;
+  }
+
+  &__page {
+    padding: 0 $padding $padding $padding / 2;
+  }
+
+  &__page-card {
+    padding: 0;
+    position: relative;
+  }
+}
+
+.grid {
+  .vertical {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 10%;
+    border-left: 1px dashed #ccc;
+  }
+
+  .horizontal {
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    border-top: 1px dashed #ccc;
+    top: 20px;
+  }
+}
+
+.selectable-element {
+  user-select: none;
+}

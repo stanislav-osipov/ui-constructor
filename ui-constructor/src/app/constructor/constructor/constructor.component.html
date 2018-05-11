@@ -1,3 +1,33 @@
-<p>
-  constructor works!
-</p>
+<div class="constructor">
+  <div class="constructor__components">
+    <mat-card>
+      <mat-list>
+        <mat-list-item (dragstart)="onDragStart('Button')" class="selectable-element" draggable="true">Button</mat-list-item>
+        <mat-list-item (dragstart)="onDragStart('Card')" class="selectable-element" draggable="true">Card</mat-list-item>
+      </mat-list>
+    </mat-card>
+  </div>
+  <div class="constructor__editor">
+    <div class="constructor__actions">
+      <mat-toolbar class="constructor__toolbar">
+        <button mat-raised-button> save </button>
+        <button mat-raised-button color="warn"> reset </button>
+      </mat-toolbar>
+    </div>
+    <div class="constructor__page">
+      <mat-card class="constructor__page-card" [style.height.px]="getPageHeight()" (drop)="onDrop($event)" (dragover)="onOver($event)">
+
+        <div class="grid" #page>
+          <ng-container *ngFor="let item of computeVerticalGrid()">
+            <div class="vertical" [style.left.%]="item.left"></div>
+          </ng-container>
+          <ng-container *ngFor="let item of computeHorizontalGrid()">
+            <div class="horizontal" [style.top.px]="item.top"></div>
+          </ng-container>
+        </div>
+
+        <ucs-page edit-mode="true" class="editable-page"></ucs-page>
+      </mat-card>
+    </div>
+  </div>
+</div>
