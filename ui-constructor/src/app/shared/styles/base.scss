@@ -1,3 +1,5 @@
+@import '~@angular/material/theming';
+
 html,
 body {
   height: 100%;
@@ -14,8 +16,30 @@ body {
     padding: 5px;
   }
 
+  .mat-card {
+    height: 100%;
+  }
+
   .mat-raised-button {
     height: 100%;
     width: 100%;
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  .dragged {
+    opacity: 0.5;
+
+    .mat-raised-button {
+      &:not([disabled]):active:not([class*=mat-elevation-z]) {
+        @include mat-elevation(2);
+      }
+    }
+  }
+
+  .draggable > * {
+    user-select: none;
   }
 }

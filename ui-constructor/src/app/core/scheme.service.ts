@@ -4,20 +4,23 @@ import { BehaviorSubject } from 'rxjs';
 const scheme = {
   elements: [
     {
-      position: { x: 5, dx: 7, y: 0, dy: 2 },
+      id: 0,
+      position: { x: 5, dx: 2, y: 0, dy: 2 },
       type: 'Button',
       data: {
         text: 'Click me!'
       }
     },
     {
-      position: { x: 0, dx: 3, y: 6, dy: 8 },
+      id: 1,
+      position: { x: 0, dx: 3, y: 6, dy: 2 },
       type: 'Button',
       data: {
         text: 'Click me 2!'
       }
     },
     {
+      id: 2,
       position: { x: 0, dx: 3, y: 0, dy: 3 },
       type: 'Button',
       data: {
@@ -25,7 +28,8 @@ const scheme = {
       }
     },
     {
-      position: { x: 1, dx: 4, y: 1, dy: 11 },
+      id: 3,
+      position: { x: 1, dx: 3, y: 1, dy: 10 },
       type: 'Card',
       data: {
         title: 'Title 1',
@@ -35,7 +39,8 @@ const scheme = {
       }
     },
     {
-      position: { x: 6, dx: 10, y: 2, dy: 14 },
+      id: 4,
+      position: { x: 6, dx: 4, y: 2, dy: 8 },
       type: 'Card',
       data: {
         title: 'Title 2',

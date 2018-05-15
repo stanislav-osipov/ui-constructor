@@ -18,15 +18,15 @@
       <mat-card class="constructor__page-card" [style.height.px]="getPageHeight()" (drop)="onDrop($event)" (dragover)="onOver($event)">
 
         <div class="grid" #page>
-          <ng-container *ngFor="let item of computeVerticalGrid()">
+          <ng-container *ngFor="let item of grids.vertical">
             <div class="vertical" [style.left.%]="item.left"></div>
           </ng-container>
-          <ng-container *ngFor="let item of computeHorizontalGrid()">
+          <ng-container *ngFor="let item of grids.horizontal">
             <div class="horizontal" [style.top.px]="item.top"></div>
           </ng-container>
         </div>
 
-        <ucs-page edit-mode="true" class="editable-page"></ucs-page>
+        <ucs-page editable="true" class="editable-page" (drag)="editDrag($event)" (drop)="editDrop($event)" (resize)="editResize($event)"></ucs-page>
       </mat-card>
     </div>
   </div>

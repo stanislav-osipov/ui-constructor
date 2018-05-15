@@ -9,9 +9,6 @@ import {
 
 export abstract class DynamicComponent {
   public static DATA_TOKEN = new InjectionToken<{}>('DYNAMIC_COMPONENT_DATA');
-
-  @Input() width: string;
-  @Input() height: string;
 }
 
 @Component({
@@ -27,9 +24,5 @@ export class ButtonComponent extends DynamicComponent implements OnInit {
     super();
   }
 
-  ngOnInit() {
-    this.text = this.data.text;
-    this.height = this.data.height;
-    this.width = this.data.width;
-  }
+  ngOnInit() {}
 }
