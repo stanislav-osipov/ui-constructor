@@ -4,7 +4,9 @@ import {
   ChangeDetectionStrategy,
   ViewChild,
   ChangeDetectorRef,
-  Inject
+  Inject,
+  HostListener,
+  AfterContentInit
 } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 
@@ -17,7 +19,7 @@ import { EventsService } from '../../page/page/events/events.service';
   styleUrls: ['./constructor.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ConstructorComponent implements OnInit {
+export class ConstructorComponent implements OnInit, AfterContentInit {
   @ViewChild('page') private container;
 
   public dragged = null;
@@ -40,12 +42,26 @@ export class ConstructorComponent implements OnInit {
     this.computeHorizontalGrid();
   }
 
+  ngAfterContentInit() {
+    this.onResize();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.schemeService.alignGridWidth(this.container.nativeElement.clientWidth);
+    this.computeVerticalGrid();
+  }
+
   private computeVerticalGrid() {
+    const result = [];
+
     for (let i = 1; i < this.scheme.width; i++) {
-      this.grids.vertical.push({
+      result.push({
         left: this.getLeftOffset(i)
       });
     }
+
+    this.grids.vertical = result;
   }
 
   private computeHorizontalGrid() {
