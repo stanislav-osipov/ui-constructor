@@ -18,6 +18,8 @@ import { CardComponent } from './dynamic/card/card.component';
 import { BaseComponent } from './dynamic/base/base.component';
 import { ColorPickerComponent } from './color-picker/color-picker/color-picker.component';
 import { ColorPickerDialogComponent } from './color-picker/color-picker-dialog/color-picker-dialog.component';
+import { EditorComponent } from './editor/editor/editor.component';
+import { EditorDialogComponent } from './editor/editor-dialog/editor-dialog.component';
 
 @NgModule({
   imports: [
@@ -47,7 +49,15 @@ import { ColorPickerDialogComponent } from './color-picker/color-picker-dialog/c
     ColorPickerModule,
     MatDialogModule
   ],
-  declarations: [ButtonComponent, CardComponent, BaseComponent, ColorPickerComponent, ColorPickerDialogComponent],
-  entryComponents: [ColorPickerDialogComponent]
+  declarations: [
+    ButtonComponent,
+    CardComponent,
+    BaseComponent,
+    ColorPickerComponent,
+    ColorPickerDialogComponent,
+    EditorComponent,
+    EditorDialogComponent
+  ],
+  entryComponents: [ColorPickerDialogComponent, EditorDialogComponent]
 })
 export class SharedModule {}

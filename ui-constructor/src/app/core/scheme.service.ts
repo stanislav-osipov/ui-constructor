@@ -69,14 +69,28 @@ const scheme = {
   providedIn: 'root'
 })
 export class SchemeService {
-  public data = new BehaviorSubject(scheme);
-  private scheme = scheme;
+  private static STORAGE_KEY = '__SCHEME';
 
-  constructor(private events: EventsService) {}
+  public data = new BehaviorSubject(scheme);
+  private scheme: any; // = scheme;
+
+  constructor(private events: EventsService) {
+    const stored = window.localStorage.getItem(SchemeService.STORAGE_KEY);
+
+    this.scheme = stored ? JSON.parse(stored) : scheme;
+    this.change(this.scheme);
+  }
 
   public change(value) {
     this.scheme = value;
     this.data.next(value);
+  }
+
+  public save() {
+    window.localStorage.setItem(
+      SchemeService.STORAGE_KEY,
+      JSON.stringify(this.scheme)
+    );
   }
 
   private setDimensions(element) {
@@ -93,16 +107,22 @@ export class SchemeService {
 
   public alignGridWidth(pageSize) {
     const width = Math.round(pageSize / this.scheme.density);
-    const diff = width - this.scheme.width;
+    const ratio = width / this.scheme.width;
 
-    if (diff) {
+    if (ratio !== 1) {
       this.scheme.width = width;
       this.scheme.elements.map(element => {
-        element.position.dx = element.position.dx + diff;
+        const x = Math.round(ratio * element.position.x);
+        const dx = Math.round(ratio * element.position.dx);
 
-        this.setDimensions(element);
+        if (x + dx < this.scheme.width) {
+          element.position.x = x;
+          element.position.dx = dx;
 
-        this.events.changed.next(element);
+          this.setDimensions(element);
+
+          this.events.changed.next(element);
+        }
       });
 
       this.change(this.scheme);

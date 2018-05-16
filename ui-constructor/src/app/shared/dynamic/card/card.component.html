@@ -1,11 +1,12 @@
-<ucs-base [data]="data">
+<ucs-base [data]="data" (edit)="editChanged($event)">
   <mat-card [style.background-color]="data.background">
     <mat-card-header>
       <mat-card-title>{{data.title}}</mat-card-title>
       <mat-card-subtitle>{{data.subtitle}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      {{data.content}}
+      <div [innerHTML]="data.content"></div>
+      <ucs-editor *ngIf="edit" class="content-edit-icon" [html]="data.content" (close)="saveContent($event)"></ucs-editor>
     </mat-card-content>
   </mat-card>
 </ucs-base>

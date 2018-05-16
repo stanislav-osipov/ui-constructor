@@ -52,6 +52,10 @@ export class ConstructorComponent implements OnInit, AfterContentInit {
     this.computeVerticalGrid();
   }
 
+  saveScheme() {
+    this.schemeService.save();
+  }
+
   private computeVerticalGrid() {
     const result = [];
 

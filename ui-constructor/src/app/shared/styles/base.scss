@@ -52,6 +52,10 @@ body {
     width: 100%;
     text-align: center;
   }
+
+  .mat-card-content {
+    position: relative;
+  }
 }
 
 mat-dialog-container {

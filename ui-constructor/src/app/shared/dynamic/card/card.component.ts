@@ -20,4 +20,8 @@ export class CardComponent extends DynamicComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  saveContent(value) {
+    this.data.content = value;
+  }
 }
