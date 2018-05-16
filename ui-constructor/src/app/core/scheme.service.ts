@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+// TODO Refine data model
 const scheme = {
   elements: [
     {
@@ -8,7 +9,9 @@ const scheme = {
       position: { x: 5, dx: 2, y: 0, dy: 2 },
       type: 'Button',
       data: {
-        text: 'Click me!'
+        text: 'Click me!',
+        background: '#fff',
+        color: '#000'
       }
     },
     {
@@ -16,7 +19,9 @@ const scheme = {
       position: { x: 0, dx: 3, y: 6, dy: 2 },
       type: 'Button',
       data: {
-        text: 'Click me 2!'
+        text: 'Click me 2!',
+        background: '#fff',
+        color: '#000'
       }
     },
     {
@@ -24,7 +29,9 @@ const scheme = {
       position: { x: 0, dx: 3, y: 0, dy: 3 },
       type: 'Button',
       data: {
-        text: 'Click me 3!'
+        text: 'Click me 3!',
+        background: '#fff',
+        color: '#000'
       }
     },
     {
@@ -35,7 +42,8 @@ const scheme = {
         title: 'Title 1',
         subtitle: 'Subtitle 1',
         content: 'content content content content content content',
-        button: 'Ok'
+        button: 'Ok',
+        background: '#fff'
       }
     },
     {
@@ -46,7 +54,8 @@ const scheme = {
         title: 'Title 2',
         subtitle: 'Subtitle 2',
         content: 'content content content content content content',
-        button: 'Ok'
+        button: 'Ok',
+        background: '#fff'
       }
     }
   ],

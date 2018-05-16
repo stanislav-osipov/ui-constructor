@@ -1,6 +1,6 @@
 <ucs-base [data]="data" (edit)="editChanged($event)">
-  <button mat-raised-button>
-    <ng-container *ngIf="!edit"> {{ data.text }} </ng-container>
+  <button mat-raised-button [style.background-color]="data.background">
+    <span *ngIf="!edit" [style.color]="data.color"> {{ data.text }} </span>
     <ng-container *ngIf="edit">
       <mat-form-field>
         <input matInput [value]="data.text" (blur)="save(buttonText.value)" #buttonText>

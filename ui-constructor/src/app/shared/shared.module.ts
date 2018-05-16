@@ -8,11 +8,16 @@ import {
   MatIconModule,
   MatExpansionModule,
   MatListModule,
-  MatInputModule
+  MatInputModule,
+  MatDialogModule
 } from '@angular/material';
+import { ColorPickerModule } from 'ngx-color-picker';
+
 import { ButtonComponent } from './dynamic/button/button.component';
 import { CardComponent } from './dynamic/card/card.component';
 import { BaseComponent } from './dynamic/base/base.component';
+import { ColorPickerComponent } from './color-picker/color-picker/color-picker.component';
+import { ColorPickerDialogComponent } from './color-picker/color-picker-dialog/color-picker-dialog.component';
 
 @NgModule({
   imports: [
@@ -24,7 +29,9 @@ import { BaseComponent } from './dynamic/base/base.component';
     MatIconModule,
     MatExpansionModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    ColorPickerModule,
+    MatDialogModule
   ],
   exports: [
     CommonModule,
@@ -36,8 +43,11 @@ import { BaseComponent } from './dynamic/base/base.component';
     MatExpansionModule,
     ButtonComponent,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    ColorPickerModule,
+    MatDialogModule
   ],
-  declarations: [ButtonComponent, CardComponent, BaseComponent]
+  declarations: [ButtonComponent, CardComponent, BaseComponent, ColorPickerComponent, ColorPickerDialogComponent],
+  entryComponents: [ColorPickerDialogComponent]
 })
 export class SharedModule {}

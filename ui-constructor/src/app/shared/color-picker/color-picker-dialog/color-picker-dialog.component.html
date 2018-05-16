@@ -1,0 +1,7 @@
+<div>
+  <span [cpToggle]="true" [cpDialogDisplay]="'inline'" [(colorPicker)]="data.color"></span>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.color" cdkFocusInitial>Ok</button>
+</div>

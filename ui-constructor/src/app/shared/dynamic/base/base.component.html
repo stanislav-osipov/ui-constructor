@@ -4,10 +4,10 @@
     dragged: data.drag
   }">
   <ng-container *ngIf="data.draggable">
-    <div #draggable>
+    <div #draggable [hidden]="editMode">
       <mat-icon class="move-icon"> open_with </mat-icon>
     </div>
-    <div #resizible>
+    <div #resizible [hidden]="editMode">
       <mat-icon class="resize-icon"> transform </mat-icon>
     </div>
     <ng-container *ngIf="!editMode">
@@ -15,6 +15,7 @@
     </ng-container>
     <ng-container *ngIf="editMode">
       <mat-icon (click)="exitEditMode()" class="edit-icon"> save </mat-icon>
+      <ucs-color-picker class="picker-icon" (color)="onColorChange($event)"></ucs-color-picker>
     </ng-container>
   </ng-container>
   <ng-content></ng-content>

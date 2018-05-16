@@ -68,6 +68,12 @@ export class BaseComponent implements AfterViewInit, OnDestroy {
     this.edit.next(false);
   }
 
+  onColorChange(value) {
+    if (value) {
+      this.data.background = value;
+    }
+  }
+
   ngOnDestroy() {
     this.destroy.next();
   }

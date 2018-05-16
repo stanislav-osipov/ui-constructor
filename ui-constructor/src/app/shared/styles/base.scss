@@ -33,7 +33,7 @@ body {
     opacity: 0.5;
 
     .mat-raised-button {
-      &:not([disabled]):active:not([class*=mat-elevation-z]) {
+      &:not([disabled]):active:not([class*='mat-elevation-z']) {
         @include mat-elevation(2);
       }
     }
@@ -51,5 +51,21 @@ body {
     padding-right: 10px;
     width: 100%;
     text-align: center;
+  }
+}
+
+mat-dialog-container {
+  &.mat-dialog-container {
+    overflow: hidden;
+    padding: 0 0 24px;
+  }
+
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .color-picker {
+    border: 0;
   }
 }
