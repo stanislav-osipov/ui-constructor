@@ -42,4 +42,14 @@ body {
   .draggable > * {
     user-select: none;
   }
+
+  .mat-form-field-infix {
+    border-top: 0;
+  }
+
+  mat-form-field {
+    padding-right: 10px;
+    width: 100%;
+    text-align: center;
+  }
 }

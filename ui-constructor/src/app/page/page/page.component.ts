@@ -129,12 +129,21 @@ export class PageComponent implements OnInit, OnDestroy {
       fromEvent(this.ref.nativeElement, 'mouseup')
         .pipe(takeUntil(this.destroy))
         .subscribe(event => {
-          this.drop.next({
-            index: this.events.dragged || this.events.resized,
-            event
-          });
-          this.events.dragged = null;
-          this.events.resized = null;
+          if (this.events.dragged !== null) {
+            this.drop.next({
+              index: this.events.dragged,
+              event
+            });
+            this.events.dragged = null;
+          }
+
+          if (this.events.resized !== null) {
+            this.drop.next({
+              index: this.events.resized,
+              event
+            });
+            this.events.resized = null;
+          }
         });
     }
   }

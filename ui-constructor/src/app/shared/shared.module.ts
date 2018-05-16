@@ -7,7 +7,8 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatExpansionModule,
-  MatListModule
+  MatListModule,
+  MatInputModule
 } from '@angular/material';
 import { ButtonComponent } from './dynamic/button/button.component';
 import { CardComponent } from './dynamic/card/card.component';
@@ -22,7 +23,8 @@ import { BaseComponent } from './dynamic/base/base.component';
     MatToolbarModule,
     MatIconModule,
     MatExpansionModule,
-    MatListModule
+    MatListModule,
+    MatInputModule
   ],
   exports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { BaseComponent } from './dynamic/base/base.component';
     MatIconModule,
     MatExpansionModule,
     ButtonComponent,
-    MatListModule
+    MatListModule,
+    MatInputModule
   ],
   declarations: [ButtonComponent, CardComponent, BaseComponent]
 })

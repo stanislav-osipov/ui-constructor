@@ -1,17 +1,21 @@
-<div class="dynamic-component"
-  [style.left.%]="data.x"
-  [style.top.px]="data.y"
-  [style.width.%]="data.width"
-  [style.height.px]="data.height"
+<div class="dynamic-component" [style.left.%]="data.x" [style.top.px]="data.y" [style.width.%]="data.width" [style.height.px]="data.height"
   [ngClass]="{
     draggable: data.draggable,
     dragged: data.drag
   }">
-  <div *ngIf="data.draggable" #draggable>
-    <mat-icon class="move-icon"> open_with </mat-icon>
-  </div>
-  <div *ngIf="data.draggable" #resizible>
+  <ng-container *ngIf="data.draggable">
+    <div #draggable>
+      <mat-icon class="move-icon"> open_with </mat-icon>
+    </div>
+    <div #resizible>
       <mat-icon class="resize-icon"> transform </mat-icon>
     </div>
+    <ng-container *ngIf="!editMode">
+      <mat-icon (click)="enterEditMode()" class="edit-icon"> edit </mat-icon>
+    </ng-container>
+    <ng-container *ngIf="editMode">
+      <mat-icon (click)="exitEditMode()" class="edit-icon"> save </mat-icon>
+    </ng-container>
+  </ng-container>
   <ng-content></ng-content>
 </div>

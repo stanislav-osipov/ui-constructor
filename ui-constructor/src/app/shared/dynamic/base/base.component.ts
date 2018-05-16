@@ -3,11 +3,13 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   Input,
+  Output,
   ViewChild,
   ElementRef,
   ChangeDetectorRef,
   AfterViewInit,
-  OnDestroy
+  OnDestroy,
+  EventEmitter
 } from '@angular/core';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -22,10 +24,12 @@ import { EventsService } from '../../../page/page/events/events.service';
 })
 export class BaseComponent implements AfterViewInit, OnDestroy {
   @Input() data: any;
+  @Output() edit = new EventEmitter();
 
   @ViewChild('draggable') dragIcon: ElementRef;
   @ViewChild('resizible') resizeIcon: ElementRef;
 
+  public editMode = false;
   private destroy = new Subject<void>();
 
   constructor(private events: EventsService, private cd: ChangeDetectorRef) {}
@@ -52,6 +56,16 @@ export class BaseComponent implements AfterViewInit, OnDestroy {
           this.cd.detectChanges();
         });
     }
+  }
+
+  enterEditMode() {
+    this.editMode = true;
+    this.edit.next(true);
+  }
+
+  exitEditMode() {
+    this.editMode = false;
+    this.edit.next(false);
   }
 
   ngOnDestroy() {
