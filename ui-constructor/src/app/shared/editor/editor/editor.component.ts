@@ -27,7 +27,7 @@ export class EditorComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(EditorDialogComponent, {
-      width: `calc(${this.width}% - 6px)`,
+      width: `${this.width}%`,
       data: { html: this.html }
     });
 

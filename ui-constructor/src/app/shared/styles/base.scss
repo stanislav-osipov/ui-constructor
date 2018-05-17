@@ -59,6 +59,10 @@ body {
   }
 }
 
+div.cdk-global-overlay-wrapper {
+  padding: 10px;
+}
+
 mat-dialog-container {
   &.mat-dialog-container {
     // overflow: hidden;
@@ -84,7 +88,7 @@ ucs-editor-dialog {
     }
 
     .jodit_workplace {
-      padding: 5px;
+      padding: 3px;
     }
   }
 }
