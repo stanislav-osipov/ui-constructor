@@ -2,6 +2,7 @@
 
 .constructor {
   display: flex;
+  flex-direction: column;
   $padding: 10px;
   max-height: calc(100% - 64px);
   overflow: hidden;
@@ -11,10 +12,9 @@
   }
 
   &__components {
-    width: 300px;
+    flex: 1;
     max-height: 90%;
     padding: $padding;
-    padding-right: $padding / 2;
   }
 
   &__editor {
@@ -24,7 +24,6 @@
 
   &__actions {
     padding: $padding;
-    padding-left: $padding / 2;
   }
 
   &__toolbar {
@@ -34,7 +33,7 @@
   }
 
   &__page {
-    padding: 0 $padding $padding $padding / 2;
+    padding: 0 $padding $padding;
   }
 
   &__page-card {

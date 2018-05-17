@@ -1,4 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { EditorDialogComponent } from '../editor-dialog/editor-dialog.component';
@@ -10,6 +17,7 @@ import { EditorDialogComponent } from '../editor-dialog/editor-dialog.component'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditorComponent implements OnInit {
+  @Input() width;
   @Input() html;
   @Output() close = new EventEmitter();
 
@@ -19,6 +27,7 @@ export class EditorComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(EditorDialogComponent, {
+      width: `calc(${this.width}% - 6px)`,
       data: { html: this.html }
     });
 

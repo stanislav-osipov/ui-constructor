@@ -5,8 +5,8 @@
       <mat-card-subtitle>{{data.subtitle}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <div [innerHTML]="data.content"></div>
-      <ucs-editor *ngIf="edit" class="content-edit-icon" [html]="data.content" (close)="saveContent($event)"></ucs-editor>
+      <div [innerHTML]="sanitizedContent"></div>
+      <ucs-editor *ngIf="edit" class="content-edit-icon" [html]="data.content" [width]="data.width" (close)="saveContent($event)"></ucs-editor>
     </mat-card-content>
   </mat-card>
 </ucs-base>

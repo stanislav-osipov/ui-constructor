@@ -18,6 +18,7 @@ body {
 
   .mat-card {
     height: 100%;
+    padding: 0;
   }
 
   .mat-raised-button {
@@ -60,7 +61,8 @@ body {
 
 mat-dialog-container {
   &.mat-dialog-container {
-    overflow: hidden;
+    // overflow: hidden;
+    overflow: visible;
     padding: 0 0 24px;
   }
 
@@ -71,5 +73,18 @@ mat-dialog-container {
 
   .color-picker {
     border: 0;
+  }
+}
+
+ucs-editor-dialog {
+  .jodit_container:not(.jodit_inline) {
+    .jodit_wysiwyg {
+      padding: 0;
+      border: 1px solid #ccc;
+    }
+
+    .jodit_workplace {
+      padding: 5px;
+    }
   }
 }

@@ -8,7 +8,8 @@ import {
   ElementRef
 } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { exec, init } from 'pell';
+import * as Jodit from 'jodit';
+
 
 @Component({
   selector: 'ucs-editor-dialog',
@@ -20,7 +21,6 @@ export class EditorDialogComponent implements OnInit, AfterViewInit {
   @ViewChild('editor') container: ElementRef;
 
   private editor;
-  private html;
 
   constructor(
     private dialogRef: MatDialogRef<EditorDialogComponent>,
@@ -30,27 +30,12 @@ export class EditorDialogComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
-    this.editor = init({
-      element: this.container.nativeElement,
-      actions: [
-        'bold',
-        'italic',
-        'heading1',
-        'heading2',
-        'olist',
-        'ulist',
-        'code',
-        'line',
-        'link',
-        'image'
-      ],
-      onChange: html => (this.html = html)
-    });
+    this.editor = new Jodit(this.container.nativeElement);
 
-    this.editor.content.innerHTML = this.data.html;
+    this.editor.value = this.data.html;
 
     this.dialogRef.backdropClick().subscribe(() => {
-      this.dialogRef.close(this.html);
+      this.dialogRef.close(this.editor.value);
     });
   }
 
